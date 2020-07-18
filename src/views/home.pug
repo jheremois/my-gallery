@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        link(rel="stylesheet", href="stylesheets/home.css")
+        link(href='https://fonts.googleapis.com/css?family=Alatsi' rel='stylesheet')
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Jheregram
+    body
+        form(action="/", method="post" enctype="multipart/form-data")
+            .upload
+                textarea.picsup(name="conten", cols="30", rows="4" placeholder='What are you thinking?...' required)
+                .up
+                    input#imag(type="file", name="foto" required)
+                    button#send
+                        img(src="icons/send.png", alt="")
+        section
+            -for(i= 0; i < publication.length; i++)     
+                #publication
+                    .cont    
+                        h3= publication[i].content
+                            br
+                            strong= ` ${time(publication[i].upload_date)}`
+                        img(src=`images/${publication[i].picture}`, alt="")
+    script(src="javascripts/home.js")
