@@ -1,9 +1,9 @@
 /*
 
 
-CREATE DATABASE pictu;
+CREATE DATABASE social;
 
-USE pictu;
+USE social;
 
 CREATE TABLE posts(
 id INT(11) NOT NULL AUTO_INCREMENT,

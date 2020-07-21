@@ -5,6 +5,6 @@ module.exports = () => {
         host:  'localhost', 
         user:  'root', //<--- your user
         password:  'root', // <--- your password
-        database:  'pictu'
+        database:  'social'
     });
 }

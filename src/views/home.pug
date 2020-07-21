@@ -2,24 +2,30 @@
 html(lang="en")
     head
         meta(charset="UTF-8")
+        //- link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous")
         link(rel="stylesheet", href="stylesheets/home.css")
         link(href='https://fonts.googleapis.com/css?family=Alatsi' rel='stylesheet')
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Jheregram
+        title Pictures
     body
         form(action="/", method="post" enctype="multipart/form-data")
             .upload
-                textarea.picsup(name="conten", cols="30", rows="4" placeholder='What are you thinking?...' required)
+                textarea.picsup(name="conten", cols="30", rows="4" placeholder="What's up?..." maxlength='25' required)
                 .up
-                    input#imag(type="file", name="foto" required)
+                    .search    
+                        label.imag(for="file-upload")
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            img(src="icons/pics.png", alt="")
+                            input(id="file-upload" onchange='cambiar()' type="file" name="foto" enctype="multipart/form-data")
+                        #info ...
                     button#send
                         img(src="icons/send.png", alt="")
-        section
+        section#sect
             -for(i= 0; i < publication.length; i++)     
                 #publication
                     .cont    
                         h3= publication[i].content
-                            br
-                            strong= ` ${time(publication[i].upload_date)}`
-                        img(src=`images/${publication[i].picture}`, alt="")
+
+                        strong= ` ${time(publication[i].upload_date)}`
+                        img#poto(src=`images/${publication[i].picture}`, alt="")
     script(src="javascripts/home.js")
