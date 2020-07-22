@@ -27,5 +27,5 @@ html(lang="en")
                         h3= publication[i].content
 
                         strong= ` ${time(publication[i].upload_date)}`
-                        img#poto(src=`images/${publication[i].picture}`, alt="")
+                        img#poto(src=`${publication[i].picture}`, alt="")
     script(src="javascripts/home.js")

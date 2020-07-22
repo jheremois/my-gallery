@@ -5,6 +5,7 @@ const path = require('path')
 const morgan = require('morgan')
 const {format} = require('timeago.js')
 
+
 const app = express()
 
 
@@ -17,8 +18,13 @@ app.set('views', path.join(__dirname,'./views'))
 app.use(express.static(path.join(__dirname,'./public')))
 
 // middlewares
+const env = require('node-env-file')
+env('./.env') 
+
 app.use(bodyparser.urlencoded({extended: false}))
+
 app.use(morgan('dev'))
+
 app.use((req,res,next)=>{
     app.locals.time = format
     next()
