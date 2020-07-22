@@ -95,6 +95,14 @@ exports.homes = (req,res)=>{
 /*
 // 2- Uncomment to save pics in cloudinary:
 
+const cloudinary = require('cloudinary')
+
+cloudinary.config({ 
+cloud_name: process.env.CLOUDINARY_Name, // <---
+api_key: process.env.CLOUDINARY_APIKEY, //<--- 
+api_secret: process.env.CLOUDINARY_SECRET // <--- 
+});
+
 exports.homes = async (req,res)=>{
     const {conten} = req.body
     const {path} = req.file
