@@ -19,10 +19,9 @@ My Gallery is a place to upload and save pictures, optimized for both mobile and
 
 ## features
 - [x] Responsive desing
-- [x] Add pictures whit title
+- [x] Add pictures with title
 - [x] Open pictures
 - [ ] Delete pictures
-- [ ] Register users and logins
 
 <img src="https://user-images.githubusercontent.com/61896147/88010695-7fe01400-cae3-11ea-9b84-8d6e2f7e47d7.png" alt="Gallery Icon"/>
 
