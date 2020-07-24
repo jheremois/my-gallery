@@ -109,7 +109,6 @@ exports.homes = async (req,res)=>{
 */
 ```
 ## Environment Variables:
- **This app needs the following environment Variables:**
 
 **mySQL:**
 `MYSQL_USER` (your mysql user)
@@ -127,7 +126,7 @@ module.exports = () => {
     });
 }
 ```
-**Cloudinary (optional):**
+**Cloudinary:**
 
 `CLOUDINARY_Name` (Your cloudinary cloud name)
 
