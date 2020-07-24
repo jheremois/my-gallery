@@ -22,5 +22,8 @@ const muler = multer({
 module.exports = ()=>{
    router.get('/', control.home)
    router.post('/', muler,control.homes)
+   router.get('/delete/:id', control.delete)
+
    return router
+
 }

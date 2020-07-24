@@ -21,8 +21,9 @@ My Gallery is a place to upload and save pictures, optimized for both mobile and
 - [x] Responsive desing
 - [x] Add pictures with title
 - [x] Open pictures
-- [ ] Delete pictures
+- [x] Delete pictures
 
+## Screenshot
 <img src="https://user-images.githubusercontent.com/61896147/88010695-7fe01400-cae3-11ea-9b84-8d6e2f7e47d7.png" alt="Gallery Icon"/>
 
 ## Setup:
@@ -38,19 +39,6 @@ npm i express mysql pug timeago.js body-parser multer uuid morgan fs-extra cloud
 npm i nodemon -D
 ```
 
-**Put your Mysql user and password at "src/database/conection.js":**
-
-```js
-module.exports = () => {
-    return mysql.createConnection({
-        host:  'localhost', 
-        user:  process.env.MYSQL_USER, //<---- Your user
-        password:  process.env.MYSQL_PASSWORD, // <---- Your password
-        database:  'social'
-    });
-}
-```
-
 **Create the database:**
 
 ```sql
@@ -58,7 +46,7 @@ CREATE DATABASE social;
 
 USE social;
 ```
-**Create the table**
+**Create the table:**
 
 ```sql
 CREATE TABLE posts(
@@ -69,7 +57,7 @@ upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (id)
 );
 ```
-**you can choose to save the images in local storage or in cloudinary, uncomment which you want to use at "src/database/conection.js":**
+**you can choose to save the images in the storage or in cloudinary, uncomment which you want to use at "src/database/conection.js":**
 
 ```js
 /*
@@ -97,9 +85,9 @@ exports.homes = (req,res)=>{
 const cloudinary = require('cloudinary')
 
 cloudinary.config({ 
-cloud_name: process.env.CLOUDINARY_Name, // <---
-api_key: process.env.CLOUDINARY_APIKEY, //<--- 
-api_secret: process.env.CLOUDINARY_SECRET // <--- 
+cloud_name: process.env.CLOUDINARY_Name,
+api_key: process.env.CLOUDINARY_APIKEY, 
+api_secret: process.env.CLOUDINARY_SECRET 
 });
 
 exports.homes = async (req,res)=>{
@@ -120,6 +108,41 @@ exports.homes = async (req,res)=>{
 }
 */
 ```
+## Environment Variables:
+ **This app needs the following environment Variables:**
+
+**mySQL:**
+`MYSQL_USER` (your mysql user)
+
+`MYSQL_PASSWORD` (your mysql password)
+
+
+```js
+module.exports = () => {
+    return mysql.createConnection({
+        host:  'localhost', 
+        user:  process.env.MYSQL_USER, //<---- 
+        password:  process.env.MYSQL_PASSWORD, // <---- 
+        database:  'social'
+    });
+}
+```
+**Cloudinary (optional):**
+
+`CLOUDINARY_Name` (Your cloudinary cloud name)
+
+`CLOUDINARY_APIKEY` (Your API key)
+
+`CLOUDINARY_SECRET` (Your API Secret)
+
+```js
+cloudinary.config({ 
+cloud_name: process.env.CLOUDINARY_Name, // <--- 
+api_key: process.env.CLOUDINARY_APIKEY, //<--- 
+api_secret: process.env.CLOUDINARY_SECRET // <---
+});
+```
+
 
 **Start it up the app:**
 ```
